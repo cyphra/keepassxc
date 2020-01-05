@@ -30,12 +30,20 @@
 #include "keys/CompositeKey.h"
 #include "keys/Key.h"
 
+const QCommandLineOption Create::DecryptionTimeOption =
+    QCommandLineOption(QStringList() << "t"
+                                     << "decryption-time",
+                       QObject::tr("Target decryption time in MS for the database."),
+                       QObject::tr("time"));
+
+
 Create::Create()
 {
     name = QString("create");
     description = QObject::tr("Create a new database.");
     positionalArguments.append({QString("database"), QObject::tr("Path of the database."), QString("")});
     options.append(Command::KeyFileOption);
+    options.append(Create::DecryptionTimeOption);
 }
 
 /**
@@ -95,6 +103,27 @@ int Create::execute(const QStringList& arguments)
 
     QSharedPointer<Database> db(new Database);
     db->setKey(key);
+
+    QString decryptionTimeValue = parser->value(Create::DecryptionTimeOption);
+    if (decryptionTimeValue.length() != 0) {
+        int decryptionTime = decryptionTimeValue.toInt();
+        if (decryptionTime <= 0) {
+            err << QObject::tr("Invalid decryption time %1.").arg(decryptionTimeValue) << endl;
+            return EXIT_FAILURE;
+        }
+        auto kdf = db->kdf();
+        Q_ASSERT(kdf);
+
+        int rounds = kdf->benchmark(decryptionTime);
+        kdf->setRounds(rounds);
+
+        bool ok = db->changeKdf(kdf);
+
+        if (!ok) {
+            err << QObject::tr("Error while setting database decryption time.") << endl;
+            return EXIT_FAILURE;
+        }
+    }
 
     QString errorMessage;
     if (!db->saveAs(databaseFilename, &errorMessage, true, false)) {
