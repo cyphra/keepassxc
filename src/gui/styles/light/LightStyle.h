@@ -15,24 +15,26 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KEEPASSXC_KPXCDARKSTYLE_H
-#define KEEPASSXC_KPXCDARKSTYLE_H
+#ifndef KEEPASSXC_LIGHTSTYLE_H
+#define KEEPASSXC_LIGHTSTYLE_H
 
+#include "gui/styles/base/BaseStyle.h"
 #include <QApplication>
-#include <QProxyStyle>
 
-class KpxcDarkStyle : public QProxyStyle
+class LightStyle : public BaseStyle
 {
-    Q_OBJECT
+Q_OBJECT
 
 public:
-    KpxcDarkStyle();
-    explicit KpxcDarkStyle(KpxcDarkStyle* style);
+    LightStyle();
+    explicit LightStyle(QProxyStyle* style);
 
-    void polish(QWidget* widget) override;
+    using BaseStyle::polish;
     void polish(QPalette& palette) override;
-    void polish(QApplication* app) override;
+
+protected:
+    QString getStylesheetPath() const override;
 };
 
 
-#endif //KEEPASSXC_KPXCDARKSTYLE_H
+#endif //KEEPASSXC_LIGHTSTYLE_H

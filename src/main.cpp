@@ -26,7 +26,8 @@
 #include "core/Config.h"
 #include "core/Tools.h"
 #include "crypto/Crypto.h"
-#include "gui/styles/dark/KpxcDarkStyle.h"
+#include "gui/styles/dark/DarkStyle.h"
+#include "gui/styles/light/LightStyle.h"
 #include "gui/Application.h"
 #include "gui/MainWindow.h"
 #include "gui/MessageBox.h"
@@ -63,7 +64,8 @@ int main(int argc, char** argv)
     Application app(argc, argv);
     Application::setApplicationName("KeePassXC");
     Application::setApplicationVersion(KEEPASSXC_VERSION);
-    QApplication::setStyle(new KpxcDarkStyle);
+//    QApplication::setStyle(new LightStyle);
+    QApplication::setStyle(new DarkStyle);
     // don't set organizationName as that changes the return value of
     // QStandardPaths::writableLocation(QDesktopServices::DataLocation)
     Bootstrap::bootstrapApplication();

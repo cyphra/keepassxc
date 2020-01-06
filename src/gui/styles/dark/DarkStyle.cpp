@@ -18,24 +18,20 @@
 #include <QFile>
 #include <QStyleFactory>
 
-#include "KpxcDarkStyle.h"
+#include "gui/styles/phantomstyle/phantomstyle.h"
+#include "DarkStyle.h"
 
-KpxcDarkStyle::KpxcDarkStyle()
+DarkStyle::DarkStyle()
 {
-    setBaseStyle(QStyleFactory::create(QStringLiteral("Fusion")));
+    setBaseStyle(new PhantomStyle);
 }
 
-KpxcDarkStyle::KpxcDarkStyle(KpxcDarkStyle* style)
-    : QProxyStyle(style)
+DarkStyle::DarkStyle(QProxyStyle* style)
+    : BaseStyle(style)
 {
 }
 
-void KpxcDarkStyle::polish(QWidget* widget)
-{
-    QProxyStyle::polish(widget);
-}
-
-void KpxcDarkStyle::polish(QPalette& palette)
+void DarkStyle::polish(QPalette& palette)
 {
     palette.setColor(QPalette::Active, QPalette::Window, QStringLiteral("#3B3D3C"));
     palette.setColor(QPalette::Inactive, QPalette::Window, QStringLiteral("#363736"));
@@ -94,15 +90,7 @@ void KpxcDarkStyle::polish(QPalette& palette)
     palette.setColor(QPalette::All, QPalette::LinkVisited, QStringLiteral("#5B8048"));
 }
 
-void KpxcDarkStyle::polish(QApplication* app)
+QString DarkStyle::getStylesheetPath() const
 {
-    Q_INIT_RESOURCE(darkstyle);
-    QFile stylesheet(":/styles/darkstyle.qss");
-    if (stylesheet.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QString qsStylesheet = stylesheet.readAll();
-        app->setStyleSheet(qsStylesheet);
-        stylesheet.close();
-    } else {
-        qWarning("Failed to load theme stylesheet.");
-    }
+    return QStringLiteral(":/styles/dark/darkstyle.qss");
 }

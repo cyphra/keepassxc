@@ -1,0 +1,186 @@
+QPushButton, QLineEdit, QTextEdit, QSpinBox {
+    padding: 5px;
+}
+
+QToolButton {
+    padding: 4px;
+}
+
+QComboBox:!editable {
+    padding: 4px 5px;
+}
+
+QComboBox:editable, QDateTimeEdit {
+    /* With Phantom as the base style, this must be adjusted in
+    C++, because the QLineEdit doesn't scale with padding set here. */
+    /*padding: 5px;*/
+}
+
+QPushButton:default {
+    background: palette(highlight);
+    color: palette(highlighted-text);
+}
+
+QSpinBox {
+    min-width: 90px;
+}
+
+QPushButton {
+    padding: 5px 30px;
+}
+
+QDialogButtonBox QPushButton {
+    min-width: 55px;
+}
+
+QCheckBox, QRadioButton {
+    spacing: 10px;
+}
+
+QToolTip {
+    border: 1px solid palette(mid);
+    border-radius: 2px;
+}
+
+QMenuBar {
+    padding: 0 0 0 10px;
+    margin: 0;
+    border: none;
+}
+
+QMenuBar::item {
+    padding: 5px;
+    border-radius: 2px;
+    color: palette(window-text);
+}
+
+QMenuBar::item:selected {
+    color: palette(highlighted-text);
+    background-color: palette(highlight);
+}
+
+QMenuBar::item:pressed {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+QToolBar {
+    border: none;
+    margin: 0;
+    padding: 0 10px 0 10px;
+}
+
+/* Fusion adjustments */
+
+/*QTabBar {*/
+/*    background: none;*/
+/*    border-bottom: 2px groove palette(midlight);*/
+/*}*/
+
+/*QTabBar::tab {*/
+/*    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 palette(mid), stop: 1 palette(base));*/
+/*    border-top-left-radius: 4px;*/
+/*    border-top-right-radius: 4px;*/
+/*    border: 2px groove palette(mid);*/
+/*    border-bottom-color: palette(midlight);*/
+/*    padding: 5px 10px 5px 12px;*/
+/*}*/
+
+/*QTabBar::tab:hover, QTabBar::tab::focus {*/
+/*    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 palette(midlight), stop: 1 palette(base));*/
+/*}*/
+
+/*QTabBar::tab:selected {*/
+/*    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 palette(light), stop: 1 palette(window));*/
+/*    border-color: palette(midlight);*/
+/*    border-top: 2px outset palette(highlight);*/
+/*    border-bottom: 2px solid palette(window);*/
+/*}*/
+
+/*QTabWidget::tab-bar {*/
+/*    alignment: center;*/
+/*}*/
+
+/*QTabWidget::pane {*/
+/*    background-color: palette(window);*/
+/*    border: 2px groove palette(midlight);*/
+/*    border-radius: 4px;*/
+/*    top: -2px;*/
+/*}*/
+
+/* Phantomstyle adjustments */
+
+QTabBar::tab {
+    background-color: palette(button);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border: 2px groove palette(mid);
+    border-bottom: 1px solid palette(mid);
+    padding: 7px 12px;
+}
+
+QTabBar::tab:hover, QTabBar::tab:focus {
+    background-color: palette(base);
+}
+
+QTabBar::tab:selected {
+    background-color: palette(window);
+    border-color: palette(mid);
+    border-top: 2px outset palette(highlight);
+    border-bottom-color: palette(window);
+}
+
+QTabBar::tab:!selected {
+    bottom: 1px;
+    padding-bottom: 6px;
+    margin-top: 1px;
+}
+
+QTabWidget::tab-bar {
+    alignment: center;
+}
+
+QGroupBox * {
+    background: none;
+}
+
+QGroupBox {
+    background-color: palette(light);
+    border: 2px groove palette(mid);
+    border-radius: 4px;
+    margin-top: 2.5em;
+    font-weight: bold;
+}
+
+QGroupBox::title {
+    background: none;
+    border-bottom: 2px groove palette(highlight);
+    padding: 5px;
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    top: .5em;
+}
+
+QTreeView::item, QHeaderView::section {
+    padding: 4px 5px;
+}
+
+DatabaseWidget, GroupView {
+    background-color: palette(window);
+    border: none;
+}
+
+EntryPreviewWidget QTabWidget > QWidget {
+    background-color: palette(window);
+}
+
+EntryPreviewWidget QLineEdit, EntryPreviewWidget QTextEdit {
+    background-color: palette(window);
+    border: none;
+}
+
+DatabaseOpenWidget #loginFrame {
+    border: 2px groove palette(mid);
+    background: palette(light);
+    border-radius: 2px;
+}
