@@ -1,0 +1,55 @@
+QPushButton {
+    padding: 5px 20px;
+}
+
+QMenuBar{
+    border: none;
+    padding: 0;
+    margin: 5px 5px 0 5px;
+}
+
+QMenuBar::item {
+    margin: 0;
+    padding: 5px;
+    background: none;
+    border: none;
+    border-radius: 2px;
+}
+
+QMenuBar::item:selected {
+    color: palette(highlight-text);
+    background-color: palette(highlight);
+}
+
+QMenuBar::item:pressed {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+QToolBar {
+    border: none;
+    padding: 0;
+    margin: 10px;
+}
+
+QTabBar::tab {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 palette(mid), stop: 1 palette(dark));
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid palette(mid);
+    border-bottom: none;
+    padding: 5px 10px 5px 12px;
+}
+
+QTabBar::tab:selected {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 palette(light), stop: 1 palette(window));
+}
+
+QTreeView::item, QHeaderView::section {
+    padding: 4px 5px;
+}
+
+DatabaseWidget, GroupView {
+    background-color: palette(window);
+    border: none;
+}
