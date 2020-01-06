@@ -64,8 +64,14 @@ int main(int argc, char** argv)
     Application app(argc, argv);
     Application::setApplicationName("KeePassXC");
     Application::setApplicationVersion(KEEPASSXC_VERSION);
-//    QApplication::setStyle(new LightStyle);
-    QApplication::setStyle(new DarkStyle);
+
+    QString appTheme = config()->get("GUI/ApplicationTheme").toString();
+    if (appTheme == "light") {
+        QApplication::setStyle(new LightStyle);
+    } else if (appTheme == "dark") {
+        QApplication::setStyle(new DarkStyle);
+    }
+
     // don't set organizationName as that changes the return value of
     // QStandardPaths::writableLocation(QDesktopServices::DataLocation)
     Bootstrap::bootstrapApplication();
