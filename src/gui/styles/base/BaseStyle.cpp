@@ -18,8 +18,8 @@
 #include <QFile>
 #include <QStyleFactory>
 
-#include "gui/styles/phantomstyle/phantomstyle.h"
 #include "BaseStyle.h"
+#include "gui/styles/phantomstyle/phantomstyle.h"
 
 BaseStyle::BaseStyle()
 {

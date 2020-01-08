@@ -18,8 +18,8 @@
 #include <QFile>
 #include <QStyleFactory>
 
-#include "gui/styles/phantomstyle/phantomstyle.h"
 #include "DarkStyle.h"
+#include "gui/styles/phantomstyle/phantomstyle.h"
 
 DarkStyle::DarkStyle()
 {

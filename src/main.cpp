@@ -26,11 +26,11 @@
 #include "core/Config.h"
 #include "core/Tools.h"
 #include "crypto/Crypto.h"
-#include "gui/styles/dark/DarkStyle.h"
-#include "gui/styles/light/LightStyle.h"
 #include "gui/Application.h"
 #include "gui/MainWindow.h"
 #include "gui/MessageBox.h"
+#include "gui/styles/dark/DarkStyle.h"
+#include "gui/styles/light/LightStyle.h"
 
 #if defined(WITH_ASAN) && defined(WITH_LSAN)
 #include <sanitizer/lsan_interface.h>

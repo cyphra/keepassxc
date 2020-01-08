@@ -23,7 +23,7 @@
 
 class LightStyle : public BaseStyle
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     LightStyle();
@@ -36,5 +36,4 @@ protected:
     QString getStylesheetPath() const override;
 };
 
-
-#endif //KEEPASSXC_LIGHTSTYLE_H
+#endif // KEEPASSXC_LIGHTSTYLE_H

@@ -36,5 +36,4 @@ protected:
     QString getStylesheetPath() const override;
 };
 
-
-#endif //KEEPASSXC_DARKSTYLE_H
+#endif // KEEPASSXC_DARKSTYLE_H

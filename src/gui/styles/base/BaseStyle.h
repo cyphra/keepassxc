@@ -39,5 +39,4 @@ protected:
     virtual QString getStylesheetPath() const = 0;
 };
 
-
-#endif //KEEPASSXC_BASESTYLE_H
+#endif // KEEPASSXC_BASESTYLE_H

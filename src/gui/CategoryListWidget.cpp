@@ -159,7 +159,6 @@ CategoryListWidgetDelegate::CategoryListWidgetDelegate(QListWidget* parent)
     }
 }
 
-
 class IconSelectionCorrectedStyle : public QProxyStyle
 {
 public:
